@@ -1,6 +1,6 @@
 # Margaret's LinkTree
 
-A beautiful, personalized link tree built with React, TypeScript, and Tailwind CSS.
+A beautiful, personalized link tree built with React, TypeScript, Vite and Tailwind CSS.
 
 ## Features
 
@@ -14,8 +14,16 @@ A beautiful, personalized link tree built with React, TypeScript, and Tailwind C
 - **React 18** with TypeScript
 - **Vite** for fast development and building
 - **Tailwind CSS** for styling
-- **Shadcn/ui** components
+- **Radix UI** for accessible UI primitives
+- **Shadcn/ui** components (built on Radix UI)
 - **React Router** for navigation
+- **GSAP** for animations
+- **React Query** for data fetching
+- **React Hook Form** for form handling
+- **Zod** for schema validation
+- **Lucide React** for icons
+- **Sonner** for toast notifications
+- **Next Themes** for theme management
 
 ## Getting Started
 
@@ -42,11 +50,12 @@ Follow these steps:
 # Using Bun
 bun dev
 
-# Or using npm
-npm run dev
-```
-
 4. Open your browser to `http://localhost:8080`
+
+## References
+refer to
+ @https://gsap.com/docs/v3/
+ @https://docs.cursor.com/en/welcome
 
 ## Customization
 

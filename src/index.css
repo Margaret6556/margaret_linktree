@@ -5,35 +5,66 @@
 
 @layer base {
   :root {
-    --background: 220 25% 97%;
-    --foreground: 220 20% 10%;
+    /* Modern Green Gradient Theme */
+    --background: 120 25% 98%;
+    --foreground: 120 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 120 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
+    --popover-foreground: 120 20% 15%;
 
-    --primary: 220 60% 50%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 120 60% 45%;
+    --primary-foreground: 120 40% 98%;
 
-    --secondary: 220 15% 95%;
-    --secondary-foreground: 220 20% 10%;
+    --secondary: 120 15% 95%;
+    --secondary-foreground: 120 20% 15%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 50%;
+    --muted: 120 15% 95%;
+    --muted-foreground: 120 10% 50%;
 
-    --accent: 220 15% 95%;
-    --accent-foreground: 220 20% 10%;
+    --accent: 120 15% 95%;
+    --accent-foreground: 120 20% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 222.2 84% 4.9%;
+    --border: 120 15% 90%;
+    --input: 120 15% 90%;
+    --ring: 120 60% 45%;
 
     --radius: 1rem;
+  }
+
+  .dark {
+    --background: 120 25% 10%;
+    --foreground: 120 15% 90%;
+
+    --card: 120 25% 15%;
+    --card-foreground: 120 15% 90%;
+
+    --popover: 120 25% 15%;
+    --popover-foreground: 120 15% 90%;
+
+    --primary: 120 60% 50%;
+    --primary-foreground: 120 40% 10%;
+
+    --secondary: 120 25% 20%;
+    --secondary-foreground: 120 15% 90%;
+
+    --muted: 120 25% 20%;
+    --muted-foreground: 120 10% 60%;
+
+    --accent: 120 25% 20%;
+    --accent-foreground: 120 15% 90%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 120 15% 90%;
+
+    --border: 120 25% 25%;
+    --input: 120 25% 25%;
+    --ring: 120 60% 50%;
   }
 }
 
@@ -62,68 +93,110 @@
     display: none;
   }
 
+  /* Modern Glass Effect */
   .glass {
-    @apply backdrop-blur-lg bg-white/50 border border-white/20 shadow-lg;
+    @apply backdrop-blur-xl bg-white/60 border border-white/30 shadow-xl;
   }
   
+  /* Enhanced Link Card */
   .link-card {
-    @apply relative overflow-hidden backdrop-blur-md border bg-white/80 border-white/30 shadow-sm transition-all duration-300 hover:shadow-md hover:bg-white/90 hover:scale-[1.01] active:scale-[0.99];
+    @apply relative overflow-hidden backdrop-blur-md border bg-white/80 border-white/40 shadow-lg transition-all duration-500 hover:shadow-2xl hover:bg-white/95 hover:scale-[1.02] active:scale-[0.98] hover:border-green-200/60;
   }
   
   .link-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 transition-opacity duration-500 ease-out pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-green-100/40 to-transparent opacity-0 transition-all duration-700 ease-out pointer-events-none;
   }
   
   .link-card:hover::before {
-    @apply opacity-100 translate-x-full transition-all duration-1000;
+    @apply opacity-100 translate-x-full transition-all duration-1000 ease-out;
+  }
+
+  /* Green Gradient Background */
+  .green-gradient-bg {
+    background: linear-gradient(135deg, 
+      #f8faf8 0%, 
+      #e8f5e8 25%, 
+      #d4f0d4 50%, 
+      #b8e6b8 75%, 
+      #9ddc9d 100%
+    );
+  }
+
+  /* Animated Background */
+  .animated-bg {
+    background: linear-gradient(-45deg, 
+      #f8faf8, 
+      #e8f5e8, 
+      #d4f0d4, 
+      #b8e6b8, 
+      #9ddc9d
+    );
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 }
 
-/* Custom animations */
+/* Enhanced GSAP Animations */
 .animate-in {
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
 }
 
 .animate-in-delay-1 {
   opacity: 0;
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   animation-delay: 0.1s;
 }
 
 .animate-in-delay-2 {
   opacity: 0;
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   animation-delay: 0.2s;
 }
 
 .animate-in-delay-3 {
   opacity: 0;
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   animation-delay: 0.3s;
 }
 
 .animate-in-delay-4 {
   opacity: 0;
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   animation-delay: 0.4s;
 }
 
 .animate-in-delay-5 {
   opacity: 0;
-  animation: fade-in 0.5s ease-out forwards;
+  animation: fade-in 0.8s ease-out forwards;
   animation-delay: 0.5s;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(20px) scale(0.95);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(120, 200, 120, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(120, 200, 120, 0.6); }
 }
 
 #root {

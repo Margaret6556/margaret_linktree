@@ -12,51 +12,63 @@ import {
   Youtube, 
   Linkedin, 
   Globe, 
-  Mail
+  Mail,
+  Code,
+  Zap,
+  Palette,
+  Database,
+  Smartphone,
+  Heart
 } from 'lucide-react';
 
-// Sample data - this could be fetched from a backend or CMS
+// Modern web3 developer links
 const links = [
   {
-    title: 'Personal Website',
-    href: 'https://example.com',
-    icon: <Globe size={18} />
+    title: 'Margaret Portfolio Website',
+    href: 'https://margaretcezar.com/startups',
+    icon: <Globe size={20} />
   },
   {
     title: 'GitHub',
-    href: 'https://github.com',
-    icon: <Github size={18} />
+    href: 'https://github.com/margaret6556',
+    icon: <Github size={20} />
   },
   {
     title: 'LinkedIn',
-    href: 'https://linkedin.com',
-    icon: <Linkedin size={18} />
+    href: 'https://linkedin.com/in/margaretcezar',
+    icon: <Linkedin size={20} />
   },
   {
-    title: 'Twitter',
-    href: 'https://twitter.com',
-    icon: <Twitter size={18} />
+    title: 'X.com',
+    href: 'https://x.com/lofelle',
+    icon: <Twitter size={20} />
   },
   {
-    title: 'Instagram',
-    href: 'https://instagram.com',
-    icon: <Instagram size={18} />
+    title: 'Online Resume',
+    href: 'https://exquisite-kitten-f89ea9.netlify.app/',
+    icon: <Code size={20} />
+  },
+  {
+    title: 'Cybersecurity Blog',
+    href: 'https://margaretcezar.github.io/cybersecurity-blog/',
+    icon: <Zap size={20} />
   },
   {
     title: 'YouTube Channel',
-    href: 'https://youtube.com',
+    href: 'https://youtube.com/@margaretcezar',
+    status: 'coming soon',
     icon: <Youtube size={18} />
   },
   {
     title: 'Contact Me',
-    href: 'mailto:hello@example.com',
-    icon: <Mail size={18} />
+    href: 'mailto:cezarlofellem@gmail.com',
+    icon: <Mail size={20} />
   }
 ];
 
 const Index = () => {
-  const [backgroundStyle, setBackgroundStyle] = useState('gradient-blue');
-  const [avatarSrc, setAvatarSrc] = useState('/placeholder.svg');
+  const [backgroundStyle, setBackgroundStyle] = useState('green-gradient');
+  const [avatarSrc, setAvatarSrc] = useState('/myghpic.png');
   
   // Get background preference from localStorage on mount
   useEffect(() => {
@@ -75,8 +87,8 @@ const Index = () => {
     <LinkTreeContainer backgroundStyle={backgroundStyle}>
       <Profile 
         avatarSrc={avatarSrc}
-        name="Your Name"
-        description="Frontend Developer & UI Designer • Building beautiful web experiences"
+        name="Margaret"
+        description="Web3 Front-End Developer & UI/UX Designer • Building the future of decentralized applications with beautiful, accessible interfaces"
       />
       
       <div className="w-full max-w-md">

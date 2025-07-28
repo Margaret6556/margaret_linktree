@@ -1,6 +1,7 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { cn } from "@/lib/utils";
+import { gsap } from 'gsap';
 
 interface LinkTreeContainerProps {
   children: React.ReactNode;
@@ -9,6 +10,11 @@ interface LinkTreeContainerProps {
 }
 
 const backgroundStyles = {
+  'green-gradient': 'green-gradient-bg',
+  'animated-green': 'animated-bg',
+  'glass-green': 'bg-gradient-to-br from-green-50/80 via-green-100/60 to-green-50/80 backdrop-blur-sm',
+  'soft-green': 'bg-gradient-to-br from-green-50 via-green-100/50 to-green-50',
+  'mesh-green': 'bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-green-100 via-green-50 to-white',
   'gradient-blue': 'bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50',
   'gradient-purple': 'bg-gradient-to-br from-purple-50 via-purple-100 to-purple-50',
   'gradient-rose': 'bg-gradient-to-br from-rose-50 via-rose-100 to-rose-50',
@@ -26,23 +32,39 @@ export const LinkTreeContainer: React.FC<LinkTreeContainerProps> = ({
   className,
 }) => {
   const [loaded, setLoaded] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setLoaded(true);
   }, []);
 
-  const bgClass = backgroundStyles[backgroundStyle as keyof typeof backgroundStyles] || backgroundStyles['soft-white'];
+  const bgClass = backgroundStyles[backgroundStyle as keyof typeof backgroundStyles] || backgroundStyles['green-gradient'];
 
   return (
-    <div className={cn(
-      "min-h-screen w-full transition-all duration-700 ease-out", 
-      bgClass,
-      className
-    )}>
-      <div className={cn(
-        "max-w-lg mx-auto p-6 min-h-screen flex flex-col items-center justify-start",
-        loaded ? "opacity-100" : "opacity-0"
-      )}>
+    <div 
+      ref={containerRef}
+      className={cn(
+        "min-h-screen w-full transition-all duration-1000 ease-out relative overflow-hidden", 
+        bgClass,
+        className
+      )}
+    >
+      {/* Animated background particles */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-2 h-2 bg-green-300/30 rounded-full animate-pulse"></div>
+        <div className="absolute top-40 right-20 w-1 h-1 bg-green-400/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-40 left-20 w-3 h-3 bg-green-200/20 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-10 w-1 h-1 bg-green-300/30 rounded-full animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+      </div>
+
+      <div 
+        ref={contentRef}
+        className={cn(
+          "max-w-lg mx-auto p-6 min-h-screen flex flex-col items-center justify-start relative z-10",
+          loaded ? "opacity-100" : "opacity-0"
+        )}
+      >
         {children}
       </div>
     </div>
