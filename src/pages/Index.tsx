@@ -24,7 +24,7 @@ import {
 // Modern web3 developer links
 const links = [
   {
-    title: 'Margaret Portfolio Website',
+    title: 'Portfolio Website',
     href: 'https://margaretcezar.com/startups',
     icon: <Globe size={20} />
   },
